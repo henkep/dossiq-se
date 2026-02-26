@@ -1,7 +1,7 @@
 ---
 title: "BRF-dokument du faktiskt behöver ha koll på"
 description: "Årsredovisningar, renoveringsbeslut, avgiftsavier — en komplett guide till vilka BRF-papper du ska spara och varför."
-publishDate: 2026-02-24
+publishDate: 2026-02-15
 author: "Magnus Natt och Dag"
 tags: ["BRF", "Bostad", "Organisation"]
 ---
