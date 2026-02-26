@@ -1,0 +1,111 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  author: string;
+  tags: string[];
+  body: string;
+  image?: string;
+  imageAlt?: string;
+}
+const { title, description, publishDate, author, tags, body, image, imageAlt } = Astro.props;
+
+function initialer(namn: string) {
+  return namn.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+}
+function lasttid(b: string) {
+  return Math.max(1, Math.round(b.split(/\s+/).length / 200));
+}
+const formateratDatum = publishDate.toLocaleDateString('sv-SE',{year:'numeric',month:'long',day:'numeric'});
+---
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | Dossiq Blogg</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="article" />
+  {image && <meta property="og:image" content={`https://dossiq.se${image}`} />}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/blogg.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LF9V4JH354"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-LF9V4JH354');</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><div class="nav-logo-dot"></div>Dossiq</a>
+  <ul class="nav-links">
+    <li><a href="/">Hem</a></li>
+    <li><a href="/blogg" class="active">Blogg</a></li>
+    <li><a href="/#pricing">Priser</a></li>
+    <li><a href="/#waitlist" class="nav-cta" data-ga-cta="blogg-inlagg-nav-cta">Kom igång gratis</a></li>
+  </ul>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/blogg">Blogg</a>
+      <svg viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      {tags[0] && <span>{tags[0].charAt(0).toUpperCase()+tags[0].slice(1)}</span>}
+    </div>
+    <div class="article-tags">
+      {tags.map(tag => <span class="article-tag">{tag}</span>)}
+    </div>
+    <h1>{title}</h1>
+    <div class="article-meta">
+      <div class="article-author">
+        <div class="article-author-avatar">{initialer(author)}</div>
+        <div class="article-author-info">
+          <h4>{author}</h4>
+          <p>Medgrundare, Dossiq</p>
+        </div>
+      </div>
+      <div class="article-stats">
+        <span>{formateratDatum}</span>
+        <span>{lasttid(body)} min läsning</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{image && (
+  <div class="article-hero-image">
+    <img src={image} alt={imageAlt || title} />
+  </div>
+)}
+
+<div class="article-body">
+  <slot />
+</div>
+
+<footer>
+  <div class="footer-logo"><div class="footer-logo-dot"></div>Dossiq</div>
+  <ul class="footer-links">
+    <li><a href="/">Hem</a></li>
+    <li><a href="/blogg">Blogg</a></li>
+    <li><a href="/#pricing">Priser</a></li>
+    <li><a href="https://dossiq.app/legal/villkor">Villkor</a></li>
+    <li><a href="https://dossiq.app/legal/integritet">Integritet</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Criterion Digital LLC. Alla rättigheter förbehållna.</div>
+</footer>
+
+<script>
+  document.querySelectorAll('[data-ga-cta]').forEach(el=>{
+    el.addEventListener('click',()=>gtag('event','cta_click',{event_category:'Blogg Inlagg',event_label:el.getAttribute('data-ga-cta')}));
+  });
+  window.addEventListener('scroll',()=>{
+    document.querySelector('nav')?.classList.toggle('scrolled',window.scrollY>20);
+  });
+</script>
+</body>
+</html>

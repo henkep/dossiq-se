@@ -1,0 +1,181 @@
+---
+export interface Props {
+  title: string;
+  posts: any[];
+}
+const { title, posts } = Astro.props;
+
+const utvalt = posts[0];
+const resten = posts.slice(1);
+
+function initialer(namn: string) {
+  return namn.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+}
+
+const TAGG_FARG: Record<string, string> = {
+  'hälsa': 'health', 'försäkring': 'health',
+  'fordon': 'vehicle', 'service': 'vehicle',
+  'ekonomi': 'finance', 'skatt': 'finance', 'renovering': 'finance',
+  'bostad': 'home', 'brf': 'home', 'flytt': 'home',
+  'familj': 'legal', 'barn': 'legal', 'organisation': 'general',
+};
+function kortFarg(tags: string[]) {
+  for (const t of tags) { const k = t.toLowerCase(); if (TAGG_FARG[k]) return TAGG_FARG[k]; }
+  return 'general';
+}
+
+const TAGG_IKON: Record<string, string> = {
+  'hälsa': '🏥', 'försäkring': '🛡️', 'fordon': '🚗', 'service': '🔧',
+  'ekonomi': '💰', 'skatt': '📊', 'renovering': '🔨',
+  'bostad': '🏠', 'brf': '🏢', 'flytt': '📦',
+  'familj': '👨‍👩‍👧‍👦', 'barn': '🎒', 'organisation': '📋',
+};
+function kortIkon(tags: string[]) {
+  for (const t of tags) { const k = t.toLowerCase(); if (TAGG_IKON[k]) return TAGG_IKON[k]; }
+  return '📄';
+}
+
+function lasttid(body: string) {
+  return Math.max(1, Math.round(body.split(/\s+/).length / 200));
+}
+---
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content="Praktiska guider om att organisera BRF-dokument, bilservice, barnpapper, försäkringar och mer — från Dossiq-teamet." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/blogg.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LF9V4JH354"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-LF9V4JH354');</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><div class="nav-logo-dot"></div>Dossiq</a>
+  <ul class="nav-links">
+    <li><a href="/">Hem</a></li>
+    <li><a href="/blogg" class="active">Blogg</a></li>
+    <li><a href="/#pricing">Priser</a></li>
+    <li><a href="/#waitlist" class="nav-cta" data-ga-cta="blogg-nav-cta">Kom igång gratis</a></li>
+  </ul>
+</nav>
+
+<div class="blog-hero">
+  <div class="blog-label">Dossiq Resurser</div>
+  <h1>Få mer ut av dina dokument</h1>
+  <p>Praktiska guider om att organisera BRF-papper, bilservice, barnpapper, försäkringar och allt annat som livet kastar på dig.</p>
+</div>
+
+<div class="tag-bar">
+  <div class="tag-pill active">Alla</div>
+  <div class="tag-pill">Bostad & BRF</div>
+  <div class="tag-pill">Fordon</div>
+  <div class="tag-pill">Ekonomi & Skatt</div>
+  <div class="tag-pill">Familj</div>
+  <div class="tag-pill">Försäkring</div>
+</div>
+
+{utvalt && (
+  <div class="featured-section">
+    <a href={`/blogg/${utvalt.id.replace(/\.md$/, '')}`} class="featured-post">
+      <div class="featured-image">
+        <div class="featured-image-content">
+          <div class="stat">Senaste artikeln</div>
+          <div class="big-number">{lasttid(utvalt.body!)}</div>
+          <div class="big-label">minuters läsning</div>
+        </div>
+        <div class="featured-image-icon">{kortIkon(utvalt.data.tags)}</div>
+      </div>
+      <div class="featured-content">
+        <div class="featured-badge">✦ Utvalt</div>
+        <h2>{utvalt.data.title}</h2>
+        <p>{utvalt.data.description}</p>
+        <div class="featured-meta">
+          <div class="author-avatar">{initialer(utvalt.data.author)}</div>
+          <div class="author-info">
+            <div class="author-name">{utvalt.data.author}</div>
+            <div class="post-date">
+              {utvalt.data.publishDate.toLocaleDateString('sv-SE',{year:'numeric',month:'long',day:'numeric'})}
+              &nbsp;·&nbsp;{lasttid(utvalt.body!)} min
+            </div>
+          </div>
+        </div>
+        <span class="read-more">
+          Läs artikeln
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="#4f46e5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </div>
+    </a>
+  </div>
+)}
+
+{resten.length > 0 && (
+  <div class="posts-section">
+    <div class="posts-section-header">
+      <h2>Alla artiklar</h2>
+      <span class="posts-count">{posts.length} artiklar</span>
+    </div>
+    <div class="posts-grid">
+      {resten.map(post => (
+        <a href={`/blogg/${post.id.replace(/\.md$/, '')}`} class="post-card">
+          <div class={`post-card-image ${kortFarg(post.data.tags)}`}>
+            {post.data.image
+              ? <img src={post.data.image} alt={post.data.imageAlt || post.data.title} />
+              : kortIkon(post.data.tags)
+            }
+          </div>
+          <div class="post-card-body">
+            <div class="post-tags">
+              {post.data.tags.map((tag: string) => <span class="post-tag">{tag}</span>)}
+            </div>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+            <div class="post-card-footer">
+              <div class="post-card-author">
+                <div class="post-card-avatar">{initialer(post.data.author)}</div>
+                <div class="post-card-byline">
+                  <div class="post-card-author-name">{post.data.author}</div>
+                  <div class="post-card-date">
+                    {post.data.publishDate.toLocaleDateString('sv-SE',{year:'numeric',month:'short',day:'numeric'})}
+                  </div>
+                </div>
+              </div>
+              <span class="post-read-time">{lasttid(post.body!)} min</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+)}
+
+<footer>
+  <div class="footer-logo"><div class="footer-logo-dot"></div>Dossiq</div>
+  <ul class="footer-links">
+    <li><a href="/">Hem</a></li>
+    <li><a href="/blogg">Blogg</a></li>
+    <li><a href="/#pricing">Priser</a></li>
+    <li><a href="https://dossiq.app/legal/villkor">Villkor</a></li>
+    <li><a href="https://dossiq.app/legal/integritet">Integritet</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Criterion Digital LLC. Alla rättigheter förbehållna.</div>
+</footer>
+
+<script>
+  document.querySelectorAll('[data-ga-cta]').forEach(el=>{
+    el.addEventListener('click',()=>gtag('event','cta_click',{event_category:'Blogg',event_label:el.getAttribute('data-ga-cta')}));
+  });
+  window.addEventListener('scroll',()=>{
+    document.querySelector('nav')?.classList.toggle('scrolled',window.scrollY>20);
+  });
+</script>
+</body>
+</html>

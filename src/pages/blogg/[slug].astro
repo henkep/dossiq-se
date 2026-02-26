@@ -1,0 +1,28 @@
+---
+import { getCollection, render } from 'astro:content';
+import BloggInlagg from '../../layouts/BloggInlagg.astro';
+
+export async function getStaticPaths() {
+  const inlagg = await getCollection('blogg', ({ data }) => !data.draft);
+  return inlagg.map(post => ({
+    params: { slug: post.id.replace(/\.md$/, '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BloggInlagg
+  title={post.data.title}
+  description={post.data.description}
+  publishDate={post.data.publishDate}
+  author={post.data.author}
+  tags={post.data.tags}
+  body={post.body!}
+  image={post.data.image}
+  imageAlt={post.data.imageAlt}
+>
+  <Content />
+</BloggInlagg>
