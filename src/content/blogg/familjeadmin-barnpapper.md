@@ -4,7 +4,7 @@ description: "Medgivandeblanketter, vaccinationskort, skolintyg, fritidsaktivite
 publishDate: 2026-02-26
 author: "Magnus Natt och Dag"
 tags: ["familj", "barn", "organisation"]
-image: "/images/blog/familjeadmin-barnpapper.png"
+image: "/images/blog/familjeadmin-barnpapper.jpg"
 imageAlt: "Mamma letar stressat i en hög med papper medan tonåringen väntar med ryggsäcken på"
 draft: false
 ---
