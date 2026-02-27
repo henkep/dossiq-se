@@ -4,11 +4,15 @@ description: "Årsredovisningar, renoveringsbeslut, avgiftsavier — en komplett
 publishDate: 2026-02-15
 author: "Magnus Natt och Dag"
 tags: ["BRF", "Bostad", "Organisation"]
+image: "/images/blog/brf-dokument-guide.jpg"
+imageAlt: "Avgiftsavier, stämmoprotokoll och fakturor — BRF-pappren hopar sig snabbt"
 ---
 
 Att bo i en bostadsrätt innebär mer pappersarbete än de flesta räknar med. Det handlar inte bara om att betala månadsavgiften i tid. Du äger en andel i en förening med stadgar, ekonomiska åtaganden och gemensamma beslut som direkt påverkar din ekonomi och din vardag.
 
 Ändå hamnar BRF-dokumenten ofta i en låda, en mejlmapp eller i bästa fall i en pärm som ingen öppnar förrän det är för sent. I den här guiden går vi igenom vilka dokument du faktiskt behöver ha koll på, varför de spelar roll och hur du kan hålla ordning utan att det blir ett projekt i sig.
+
+![Avgiftsavier, stämmoprotokoll och fakturor — BRF-pappren hopar sig snabbt](/images/blog/brf-dokument-guide.jpg)
 
 ## Årsredovisningen — föreningens ekonomiska hälsobevis
 
