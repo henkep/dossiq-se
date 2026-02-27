@@ -4,15 +4,13 @@ description: "Årsredovisningar, renoveringsbeslut, avgiftsavier — en komplett
 publishDate: 2026-02-15
 author: "Magnus Natt och Dag"
 tags: ["BRF", "Bostad", "Organisation"]
-image: "/images/blog/brf-dokument-guide.jpg"
-imageAlt: "Avgiftsavier, stämmoprotokoll och fakturor — BRF-pappren hopar sig snabbt"
 ---
 
 Att bo i en bostadsrätt innebär mer pappersarbete än de flesta räknar med. Det handlar inte bara om att betala månadsavgiften i tid. Du äger en andel i en förening med stadgar, ekonomiska åtaganden och gemensamma beslut som direkt påverkar din ekonomi och din vardag.
 
 Ändå hamnar BRF-dokumenten ofta i en låda, en mejlmapp eller i bästa fall i en pärm som ingen öppnar förrän det är för sent. I den här guiden går vi igenom vilka dokument du faktiskt behöver ha koll på, varför de spelar roll och hur du kan hålla ordning utan att det blir ett projekt i sig.
 
-![Avgiftsavier, stämmoprotokoll och fakturor — BRF-pappren hopar sig snabbt](/images/blog/brf-dokument-guide.jpg)
+![Avgiftsavier, stämmoprotokoll och fakturor — BRF-pappren hopar sig snabbt](./brf-dokument-guide.png)
 
 ## Årsredovisningen — föreningens ekonomiska hälsobevis
 
@@ -28,6 +26,14 @@ Att bo i en bostadsrätt innebär mer pappersarbete än de flesta räknar med. D
 > En bra tumregel: om du inte förstår årsredovisningen, fråga styrelsen. Du har rätt att få den förklarad.
 
 Spara varje årsredovisning. Om du säljer din lägenhet kommer potentiella köpare och deras mäklare att vilja se dem. Årsredovisningarna visar hur föreningen har utvecklats över tid, och det är ofta viktigare än ett enskilt år.
+
+<div class="callout">
+  <div class="callout-icon">📊</div>
+  <div class="callout-content">
+    <h4>Dossiq håller koll på historiken åt dig</h4>
+    <p>Ladda upp årsredovisningarna år för år och Dossiq bygger automatiskt en ekonomisk tidslinje för din förening. Undrar du hur avgiften har förändrats sedan du köpte? Eller om skuldsättningen ökat? Fråga assistenten direkt — den har koll på alla dina dokument och svarar på naturlig svenska.</p>
+  </div>
+</div>
 
 ## Avgiftsavier och avgiftshöjningar
 
@@ -72,6 +78,14 @@ Har du renoverat din lägenhet? Då finns det en rad dokument du måste ha kvar.
 
 Dessa dokument är avgörande vid en framtida försäljning. En köpare som ser att badrummet renoverades utan dokumentation kommer antingen att pruta på priset eller backa ur affären.
 
+<div class="callout">
+  <div class="callout-icon">🔨</div>
+  <div class="callout-content">
+    <h4>Samla hela renoveringshistoriken på ett ställe</h4>
+    <p>Med Dossiq kopplas alla renoveringsdokument — ansökan, godkännande, fakturor, tätskiktsprotokoll och garantibevis — automatiskt till din lägenhet. När du säljer har du allt samlat och klart att visa mäklaren. Ingen letande, ingen stress.</p>
+  </div>
+</div>
+
 ## Stadgar och trivselregler
 
 Föreningens stadgar är dess grundläggande regelverk. De styr allt från andrahandsuthyrning till husdjur, renoveringsregler och röstningsförfarande.
@@ -112,4 +126,14 @@ Att samla alla dessa dokument behöver inte vara komplicerat:
 
 En bostadsrätt är ofta den största ekonomiska investering du gör. Att ha ordning på BRF-dokumenten skyddar dig vid försäljning, renoveringar och tvister. Årsredovisningar, stämmoprotokoll, renoveringshandlingar och försäkringsbrev -- det är dokumenten som gör skillnad.
 
-Med [Dossiq](https://dossiq.se) kan du skanna och ladda upp dina BRF-dokument och få dem automatiskt kategoriserade, sökbara och kopplade till din bostad. Slipp leta i mejlkorgen eller i mappar -- ha allt samlat och tillgängligt precis när du behöver det.
+Det är precis det [Dossiq](https://dossiq.se) är byggt för. Du skannar eller vidarebefordrar dina BRF-dokument och Dossiq läser, kategoriserar och kopplar dem automatiskt till din bostad — årsredovisningar, stämmoprotokoll, avgiftsavier, renoveringsfakturor, försäkringsbrev, allt på ett ställe.
+
+Men det stannar inte vid förvaring. Dossiq bygger en fullständig historik över din bostadsrätt: hur avgiften har förändrats, vilka renoveringar som gjorts och när, hur föreningens ekonomi har utvecklats år för år. Du kan ställa frågor direkt till assistenten — *"Hur mycket har avgiften höjts sedan 2020?"*, *"Vilket garantibevis gäller för badrummet?"*, *"Vad beslutades på extrastämman 2023?"* — och få svar på sekunder, utan att öppna ett enda dokument.
+
+Slipp leta i mejlkorgen, i pärmar och i gamla mejltrådar. Ha allt samlat, sökbart och tillgängligt — precis när du behöver det.
+
+<div class="article-cta">
+  <h3>Håll koll på din bostadsrätt — utan pappershögar</h3>
+  <p>Dossiq organiserar dina BRF-dokument automatiskt och svarar på dina frågor om dem. Gå med på väntelistan och var bland de första att prova.</p>
+  <a href="https://dossiq.se/#waitlist" class="cta-button">Gå med på väntelistan →</a>
+</div>
