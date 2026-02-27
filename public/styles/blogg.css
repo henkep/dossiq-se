@@ -118,6 +118,7 @@ nav{
   min-height:360px;display:flex;align-items:center;justify-content:center;
   position:relative;overflow:hidden;
 }
+.featured-image img{width:100%;height:100%;object-fit:cover;}
 .featured-image-icon{font-size:96px;opacity:0.25;position:absolute;bottom:-16px;right:-16px;}
 .featured-image-content{position:relative;z-index:1;padding:40px;color:rgba(255,255,255,0.9);}
 .featured-image-content .stat{

@@ -86,12 +86,17 @@ function lasttid(body: string) {
   <div class="featured-section">
     <a href={`/blogg/${utvalt.id.replace(/\.md$/, '')}`} class="featured-post">
       <div class="featured-image">
-        <div class="featured-image-content">
-          <div class="stat">Senaste artikeln</div>
-          <div class="big-number">{lasttid(utvalt.body!)}</div>
-          <div class="big-label">minuters läsning</div>
-        </div>
-        <div class="featured-image-icon">{kortIkon(utvalt.data.tags)}</div>
+        {utvalt.data.image
+          ? <img src={utvalt.data.image} alt={utvalt.data.imageAlt || utvalt.data.title} />
+          : <>
+              <div class="featured-image-content">
+                <div class="stat">Senaste artikeln</div>
+                <div class="big-number">{lasttid(utvalt.body!)}</div>
+                <div class="big-label">minuters läsning</div>
+              </div>
+              <div class="featured-image-icon">{kortIkon(utvalt.data.tags)}</div>
+            </>
+        }
       </div>
       <div class="featured-content">
         <div class="featured-badge">✦ Utvalt</div>
